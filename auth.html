@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Access | BITYUG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/auth.css">
+    <script type="module" src="/src/auth.js"></script>
+    <style>
+        /* Anti-FOUC */
+        html {
+            background-color: #050505;
+        }
+
+        body {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.is-ready {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar">
+            <div class="container nav-content">
+                <div class="logo"><a href="index.html"
+                        style="text-decoration: none; color: inherit;">BITYUG<span>_</span></a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="auth-container">
+            <div class="auth-wrapper glass-card">
+                <!-- Toggle Switch -->
+                <div class="auth-toggle">
+                    <button class="toggle-btn active" id="btn-login">Login</button>
+                    <button class="toggle-btn" id="btn-signup">Register</button>
+                    <div class="slider"></div>
+                </div>
+
+                <!-- Forms Container -->
+                <div class="forms-container">
+                    <!-- Login Form -->
+                    <form id="login-form" class="auth-form active-form">
+                        <h2 class="tech-font">Access Terminal</h2>
+                        <p class="auth-desc">Enter your credentials to access the BITYUG network.</p>
+
+                        <div class="form-group">
+                            <input type="email" id="login-email" required placeholder=" " autocomplete="off">
+                            <label for="login-email">Email Address</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" id="login-password" required placeholder=" " autocomplete="off">
+                            <label for="login-password">Password</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span class="btn-text">INITIALIZE_SESSION</span>
+                            <span class="loader"></span>
+                        </button>
+
+                        <div id="login-error" class="error-msg"></div>
+                    </form>
+
+                    <!-- Signup Form -->
+                    <form id="signup-form" class="auth-form">
+                        <h2 class="tech-font">New Recruit</h2>
+                        <p class="auth-desc">Join the collective. Your ID will be generated upon entry.</p>
+
+                        <div class="form-group">
+                            <input type="text" id="signup-name" required placeholder=" " autocomplete="off">
+                            <label for="signup-name">Full Name</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="signup-email" required placeholder=" " autocomplete="off">
+                            <label for="signup-email">Email Address</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="signup-course" required placeholder=" " autocomplete="off">
+                            <label for="signup-course">Course & Year (e.g., B.Tech CSE 2nd)</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" id="signup-password" required placeholder=" " autocomplete="off">
+                            <label for="signup-password">Set Password</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span class="btn-text">GENERATE_IDENTITY</span>
+                            <span class="loader"></span>
+                        </button>
+
+                        <div id="signup-error" class="error-msg"></div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

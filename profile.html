@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member Profile | BITYUG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/profile.css">
+    <!-- Barcode Library -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script type="module" src="/src/profile.js"></script>
+    <style>
+        /* Anti-FOUC */
+        html {
+            background-color: #050505;
+        }
+
+        body {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.is-ready {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar">
+            <div class="container nav-content">
+                <div class="logo"><a href="index.html"
+                        style="text-decoration: none; color: inherit;">BITYUG<span>_</span></a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" id="nav-logout" class="btn-text">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="profile-container">
+            <div class="container">
+                <div class="profile-grid">
+                    <!-- Left Column: Identity Card -->
+                    <div class="profile-card glass-card">
+                        <div class="id-header">
+                            <h2 class="tech-font">MEMBER IDENTITY</h2>
+                            <div class="status-indicator">ACTIVE</div>
+                        </div>
+
+                        <div class="user-info">
+                            <div class="info-group">
+                                <label>FULL NAME</label>
+                                <div class="info-value" id="user-name">Loading...</div>
+                            </div>
+                            <div class="info-group">
+                                <label>MEMBER ID</label>
+                                <div class="info-value accent" id="user-id">BIT---</div>
+                            </div>
+                            <div class="info-group">
+                                <label>COURSE / YEAR</label>
+                                <div class="info-value" id="user-course">Loading...</div>
+                            </div>
+                            <div class="info-group">
+                                <label>EMAIL</label>
+                                <div class="info-value email-text" id="user-email">Loading...</div>
+                            </div>
+                        </div>
+
+                        <div class="barcode-area">
+                            <svg id="barcode"></svg>
+                            <p class="barcode-subtext">SCAN FOR ENTRY</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Dashboard Stats (Placeholder for future) -->
+                    <div class="dashboard-area">
+                        <div class="welcome-banner glass-card">
+                            <h3>Welcome back, <span id="welcome-name" class="accent-text">Member</span></h3>
+                            <p>Access your society resources and upcoming event tickets here.</p>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-card glass-card">
+                                <h4>Events Joined</h4>
+                                <div class="stat-number">0</div>
+                            </div>
+                            <div class="stat-card glass-card">
+                                <h4>Hackathons</h4>
+                                <div class="stat-number">0</div>
+                            </div>
+                            <div class="stat-card glass-card">
+                                <h4>Workshops</h4>
+                                <div class="stat-number">0</div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card mt-4">
+                            <h3 class="mb-2">Upcoming Activities</h3>
+                            <p class="text-dim">No registered events found. Check the <a href="events.html"
+                                    class="accent-link">Events Page</a> to join.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

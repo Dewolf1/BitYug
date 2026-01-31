@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events Explorer | BITYUG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/events_v2.css">
+</head>
+
+<body class="v2-events-page">
+    <div id="app">
+        <!-- Horizontal Navbar (Consistent with Home) -->
+        <nav class="navbar">
+            <div class="container nav-content">
+                <div class="logo"><a href="index.html"
+                        style="text-decoration: none; color: inherit;">BITYUG<span>_</span></a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="events.html" class="active-link">Events</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="auth.html" class="btn-text">Member Area</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="v2-main-container container">
+            <!-- Search & Filter Header -->
+            <section class="v2-top-bar glass-card">
+                <div class="v2-search-container">
+                    <span class="v2-search-icon">🔍</span>
+                    <input type="text" id="v2-event-search" placeholder="Search by title, tags, or description...">
+                </div>
+                <div class="v2-results-meta">
+                    <span id="v2-result-count">Showing 0 events</span>
+                    <button id="v2-clear-filters" class="btn-link">Clear all</button>
+                    <div class="v2-sort-container">
+                        <label for="v2-sort-select">Sort by:</label>
+                        <select id="v2-sort-select" class="v2-select">
+                            <option value="newest">Date: NewestFirst</option>
+                            <option value="oldest">Date: OldestFirst</option>
+                            <option value="alpha">Title: A-Z</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <div class="v2-page-layout">
+                <!-- Left: Event Results Feed -->
+                <section class="v2-results-area">
+                    <div id="v2-events-feed" class="v2-events-grid">
+                        <!-- Events will be injected here -->
+                    </div>
+                    <div id="v2-empty-state" class="v2-empty-state" style="display: none;">
+                        <div class="empty-icon">📂</div>
+                        <h3>No matching events found</h3>
+                        <p>Adjust your filters or search terms and try again.</p>
+                    </div>
+                </section>
+
+                <!-- Right: Amazon-style Sidebar Filters -->
+                <aside class="v2-filter-sidebar">
+                    <div class="v2-filter-group glass-card">
+                        <h3>Event Category</h3>
+                        <div class="v2-checkbox-list" data-filter-type="type">
+                            <!-- Injected checkboxes with counts -->
+                        </div>
+                    </div>
+
+                    <div class="v2-filter-group glass-card">
+                        <h3>Location</h3>
+                        <div class="v2-checkbox-list" data-filter-type="location">
+                            <!-- Injected checkboxes with counts -->
+                        </div>
+                    </div>
+
+                    <div class="v2-filter-group glass-card">
+                        <h3>Experience Level</h3>
+                        <div class="v2-checkbox-list" data-filter-type="level">
+                            <!-- Injected checkboxes with counts -->
+                        </div>
+                    </div>
+
+                    <div class="v2-filter-group glass-card">
+                        <h3>Status</h3>
+                        <div class="v2-checkbox-list" data-filter-type="status">
+                            <label class="v2-check-item">
+                                <input type="checkbox" name="status" value="upcoming" checked>
+                                <span class="v2-check-text">Upcoming</span>
+                            </label>
+                            <label class="v2-check-item">
+                                <input type="checkbox" name="status" value="past" checked>
+                                <span class="v2-check-text">Past</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 BITYUG. All Rights Reserved. // V2.EXPLORE_HUB</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- GSAP for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script type="module" src="/src/events.js"></script>
+</body>
+
+</html>

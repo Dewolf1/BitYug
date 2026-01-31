@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bityug | Official Tech Society of CST, ADGIPS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <style>
+    /* Critical Anti-FOUC Styles */
+    html {
+      background-color: #050505;
+      /* Immediate dark theme */
+    }
+
+    body {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    body.is-ready {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <nav class="navbar">
+      <div class="container nav-content">
+        <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">BITYUG<span>_</span></a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="index.html#team">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="auth.html" class="btn-text">Member Area</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section id="hero" class="hero-section">
+        <canvas id="hero-canvas"></canvas>
+        <div class="container hero-content">
+          <h1 class="glitch" data-text="BITYUG">BITYUG</h1>
+          <p class="subtitle">Innovation Meets Inspiration</p>
+          <p class="tagline">Official Tech Society of CST Department, ADGIPS</p>
+          <div class="cta-group">
+            <a href="events.html" class="btn btn-primary">Our Events</a>
+            <a href="#about" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h2 class="section-title">Who We Are</h2>
+          <div class="about-grid">
+            <div class="glass-card about-card text-left">
+              <div class="about-content">
+                <div class="about-item">
+                  <h3>🚀 About BITYUG</h3>
+                  <p class="subtitle-small">The Powerhouse of Innovation at ADGIPS</p>
+                  <p>BITYUG is the official tech society of the Computer Science & Technology (CST) Department at
+                    ADGIPS. We are more than just a club; we are a collective of visionaries, creators, and leaders
+                    dedicated to turning bold ideas into impactful reality. At Bityug, we don’t just follow the digital
+                    journey we power it.</p>
+                </div>
+
+                <div class="about-item">
+                  <h3>🛠️ What We Do</h3>
+                  <ul class="feature-list">
+                    <li>
+                      <strong>💡 Bridging the Gap</strong>
+                      <p>We act as the vital link between classroom concepts and real-world creation, ensuring students
+                        are ready for the evolving tech landscape.</p>
+                    </li>
+                    <li>
+                      <strong>🏆 National-Level Excellence</strong>
+                      <p>We take pride in hosting flagship events like CodeZen, bringing together the brightest minds
+                        from across the country to solve complex challenges.</p>
+                    </li>
+                    <li>
+                      <strong>🤝 Community & Collaboration</strong>
+                      <p>Through strategic partnerships with industry leaders and fellow coding societies, we build a
+                        network that fosters growth and mentorship.</p>
+                    </li>
+                    <li>
+                      <strong>🔧 Technical Mastery</strong>
+                      <p>From Web Development and AI to Open Source, we cultivate a culture of technical excellence
+                        through hands-on workshops and high-stakes hackathons.</p>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="about-item">
+                  <h3>🌟 Our Vision</h3>
+                  <p>Our goal is to create an ecosystem where innovation meets inspiration. Whether it's through our
+                    Stranger Things-themed hackathons or our rigorous technical deep-dives, we empower every member to
+                    think beyond the ordinary and build the extraordinary.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="events" class="section">
+        <div class="container">
+          <h2 class="section-title">Latest Hackathon & Events</h2>
+          <div class="events-grid" id="home-events-grid">
+            <!-- Top 3 events will be injected here via JS -->
+          </div>
+          <div class="text-center margin-top">
+            <a href="events.html" class="btn btn-secondary">View All Events</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="team" class="section">
+        <div class="container">
+          <h2 class="section-title">Core Team 2025</h2>
+          <div class="team-grid" id="team-grid">
+            <!-- Team members will be injected here via JS -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 BITYUG. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
