@@ -6,7 +6,7 @@ BITYUG is a modern, responsive, and interactive website designed to showcase the
 
 ## 🚀 Key Features
 
-*   **Immersive Design**: A "Dark Mode" first aesthetic with neon accents (`--accent-cyan`, `--accent-purple`) and glassmorphism.
+*   **Immersive Design**: A "Dark Mode" first with neon accents (`--accent-cyan`, `--accent-purple`) and glassmorphism.
 *   **Fully Responsive**: optimized for Mobile, Tablet, and Desktop.
     *   Custom Hamburger Menu with staggered animations.
     *   Responsive Grids for Events and Contact pages.
