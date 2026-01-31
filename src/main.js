@@ -14,34 +14,144 @@ gsap.ticker.add((time) => {
 })
 gsap.ticker.lagSmoothing(0)
 
+// Mobile Menu Toggle
+const menuToggle = document.querySelector('.menu-toggle')
+const navLinks = document.querySelector('.nav-links')
+const navItems = document.querySelectorAll('.nav-links li')
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    // Toggle Nav
+    navLinks.classList.toggle('nav-active')
+    menuToggle.classList.toggle('toggle')
+
+    // Animate Links
+    navItems.forEach((link, index) => {
+      if (link.style.animation) {
+        link.style.animation = ''
+      } else {
+        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`
+      }
+    })
+  })
+
+  // Close menu when a link is clicked
+  navItems.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('nav-active')
+      menuToggle.classList.remove('toggle')
+      navItems.forEach(item => item.style.animation = '')
+    })
+  })
+}
+
+// Add keyframes for link animation dynamically
+const styleSheet = document.createElement("style")
+styleSheet.innerText = `
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+`
+document.head.appendChild(styleSheet)
+
 // Prevent FOUC - Uncloak body
 document.body.classList.add('is-ready')
 
 // Team Data
-const teamMembers = [
-  { name: 'Haider Ali', role: 'President' },
-  { name: 'Deepesh Jain', role: 'Vice President' },
-  { name: 'Palak Pachori', role: 'General Secretary' },
-  { name: 'Satyam Raj', role: 'Management Head' },
-  { name: 'Harshit Pathak', role: 'Public Relations Head' },
-  { name: 'Vani Jain', role: 'Content Head' },
-  { name: 'Mohd Adeeb', role: 'Technical Head' },
-  { name: 'Nikhil Jha', role: 'Marketing Head' },
-  { name: 'Ishita Bhargava', role: 'Photography Head' }
-]
+import { teamMembers } from './data/team'
 
 const teamGrid = document.querySelector('#team-grid')
+const modalOverlay = document.querySelector('.modal-overlay')
+const modalContent = document.querySelector('.modal-content')
+const modalClose = document.querySelector('.modal-close')
+
+// Elements to populate
+const modalImage = document.querySelector('#modal-image')
+const modalName = document.querySelector('#modal-name')
+const modalRole = document.querySelector('#modal-role')
+const modalYear = document.querySelector('#modal-year')
+const modalGithub = document.querySelector('#modal-github')
+const modalLinkedin = document.querySelector('#modal-linkedin')
+const modalInstagram = document.querySelector('#modal-instagram')
+
 if (teamGrid) {
   teamMembers.forEach(member => {
     const card = document.createElement('div')
     card.className = 'glass-card team-card'
+    card.setAttribute('data-id', member.id)
+    card.style.cursor = 'pointer'
     card.innerHTML = `
       <h3>${member.name}</h3>
       <p>${member.role}</p>
     `
+    // Click Handler for Modal
+    card.addEventListener('click', () => openModal(member))
     teamGrid.appendChild(card)
   })
 }
+
+function openModal(member) {
+  // Populate Data
+  modalImage.src = member.image
+  modalName.textContent = member.name
+  modalRole.textContent = member.role
+  modalYear.textContent = member.year
+  modalGithub.href = member.socials.github
+  modalLinkedin.href = member.socials.linkedin
+  modalInstagram.href = member.socials.instagram
+
+  // Animation
+  modalOverlay.style.display = 'flex'
+  gsap.to(modalOverlay, { opacity: 1, duration: 0.3 })
+  gsap.fromTo(modalContent,
+    { scale: 0.8, opacity: 0, y: 50 },
+    { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'back.out(1.7)' }
+  )
+}
+
+function closeModal() {
+  gsap.to(modalContent, {
+    scale: 0.8,
+    opacity: 0,
+    y: 50,
+    duration: 0.3,
+    ease: 'power2.in',
+    onComplete: () => {
+      gsap.to(modalOverlay, {
+        opacity: 0,
+        duration: 0.2,
+        onComplete: () => {
+          modalOverlay.style.display = 'none'
+        }
+      })
+    }
+  })
+}
+
+// Close Events
+if (modalClose) {
+  modalClose.addEventListener('click', closeModal)
+}
+
+if (modalOverlay) {
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModal()
+  })
+}
+
+// Escape key to close
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
+    closeModal()
+  }
+})
 
 // Render Events on Homepage (Top 3)
 const homeEventsGrid = document.querySelector('#home-events-grid')

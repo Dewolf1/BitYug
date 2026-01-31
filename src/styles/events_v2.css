@@ -316,6 +316,7 @@
         height: 200px;
     }
 }
+
 /* Event Details Page Styles */
 .event-details-page {
     background: #050505;
@@ -336,7 +337,10 @@
 .details-hero::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: radial-gradient(circle at center, transparent 0%, #050505 90%);
 }
 
@@ -522,7 +526,7 @@
     .details-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .details-cta-box {
         flex-direction: column;
         border-radius: 20px;
@@ -530,8 +534,96 @@
         gap: 1.5rem;
         width: 100%;
     }
-    
+
     .meta-item {
         text-align: center;
     }
+}
+
+/* Registration Modal Styles */
+/* Registration Modal Styles */
+.registration-content {
+    max-width: 700px;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--accent-cyan);
+    padding: 3.5rem;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    color: white;
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.modal-subtitle {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-content {
+        padding: 2rem;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.form-group input {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    color: white;
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--accent-cyan);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+}
+
+.btn-block {
+    width: 100%;
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
