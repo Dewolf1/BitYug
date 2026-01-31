@@ -1,3 +1,6 @@
+/* Import refined events styles */
+@import './events_refined.css';
+
 :root {
     /* Colors */
     --bg-dark: #050505;
@@ -723,8 +726,6 @@ input:checked+.slider:before {
     }
 }
 
-/* Import refined events styles */
-@import './events_refined.css';
 
 /* About Section Polish */
 .about-content {
