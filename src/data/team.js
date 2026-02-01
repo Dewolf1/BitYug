@@ -46,22 +46,23 @@ export const teamMembers = [
         }
     },
     {
-        id: 'mgmt-head',
-        name: 'Satyam Raj',
-        role: 'Management Head',
+        id: 'tech-head',
+        name: 'Mohd Adeeb',
+        role: 'Technical Head',
         year: '3rd Year',
-        image: satyamImg,
+        image: adeebImg,
         socials: {
             github: '#',
             linkedin: '#',
             instagram: '#'
         }
     },
+ 
     {
         id: 'pr-head',
-        name: 'Harshit Pathak',
-        role: 'Public Relations Head',
-        year: '3rd Year',
+        name: 'Vishv Dhama',
+        role: 'Graphic Head',
+        year: '2nd Year',
         image: harshitImg,
         socials: {
             github: '#',
@@ -81,17 +82,16 @@ export const teamMembers = [
             instagram: '#'
         }
     },
-    {
-        id: 'tech-head',
-        name: 'Mohd Adeeb',
-        role: 'Technical Head',
-        year: '3rd Year',
-        image: adeebImg,
-        socials: {
+    { 
+        id: 'mgmt-head',
+        name: 'Satyam Raj',
+        role: 'Management Head', year: '3rd Year',
+        image: satyamImg,
+        socials: { 
             github: '#',
             linkedin: '#',
             instagram: '#'
-        }
+         }
     },
     {
         id: 'mkting-head',
