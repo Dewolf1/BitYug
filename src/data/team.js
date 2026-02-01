@@ -60,9 +60,9 @@ export const teamMembers = [
  
     {
         id: 'pr-head',
-        name: 'Harshit Pathak',
-        role: 'Public Relations Head',
-        year: '3rd Year',
+        name: 'Vishv Dhama',
+        role: 'Graphic Head',
+        year: '2nd Year',
         image: harshitImg,
         socials: {
             github: '#',
