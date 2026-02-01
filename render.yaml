@@ -4,6 +4,22 @@ services:
     env: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /events
+        destination: /events.html
+      - type: rewrite
+        source: /contact
+        destination: /contact.html
+      - type: rewrite
+        source: /auth
+        destination: /auth.html
+      - type: rewrite
+        source: /profile
+        destination: /profile.html
+      - type: rewrite
+        source: /event-details
+        destination: /event-details.html
     headers:
       - path: /*
         name: Cache-Control
